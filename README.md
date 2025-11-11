@@ -33,7 +33,7 @@ This work introduces distributed data-driven control barrier functions (3D-ZCBFs
   Dataclasses defining the configuration structures for simulation, agents, graph, and control.
 
 - `leader_follower_mas.py`  
-  (Not provided here) Class implementing the MAS dynamics and CBF computations.
+  Class implementing the MAS dynamics and CBF computations.
 
 ---
 
