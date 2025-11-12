@@ -15,9 +15,9 @@ This work introduces distributed data-driven control barrier functions (3D-ZCBFs
 
 ---
 
-## Repository Structure
-
-distributed-dd-cbf/
+## 📂 Project Structure
+```
+3D-ZCBF/
 │
 ├── simulate.py # Main script to run 1D/2D MAS simulations
 │
@@ -41,7 +41,7 @@ distributed-dd-cbf/
 │
 ├── requirements.txt # Python dependencies
 └── README.md
----
+```
 
 ## Installation
 
@@ -51,7 +51,7 @@ Install dependencies using `pip`:
 pip install -r requirements.txt
 ```
 
-## Usage
+## 📖 Usage
 
 Run simulations with:
 
@@ -74,6 +74,6 @@ is_train = False  # True to train, False to load from jacobian_bounds/
 save_dir = "figures"
 ```
 
-## License
+## 📜 License
 
 This repository is for academic and research purposes. Please cite the above paper if used.
