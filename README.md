@@ -34,8 +34,8 @@ This work introduces distributed data-driven control barrier functions (3D-ZCBFs
 │ └── config_struct.py # Dataclasses for configuration structures
 │
 ├── jacobian_bounds/ # Precomputed Jacobian bound files
-│ ├── jacobian_bounds_1d.pkl
-│ └── jacobian_bounds_2d.pkl
+│ ├── Jbounds1D.pkl
+│ └── Jbounds2D.pkl
 │
 ├── figures/ # Simulation results (plots, figures)
 │
@@ -70,10 +70,13 @@ dimension = '2d'
 # Control whether to train Jacobian bounds or load precomputed ones
 is_train = False  # True to train, False to load from jacobian_bounds/
 
+# Control whether to save simulation results or not
+is_save = False
+
 # Directory to save simulation results and figures
 save_dir = "figures"
 ```
 
-## 📜 License
+## 📜 Citing this Work
 
 This repository is for academic and research purposes. Please cite the above paper if used.

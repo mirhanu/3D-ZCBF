@@ -61,7 +61,7 @@ def control_law_wrapper(state, t, mas, Jubounds, Jlbounds, filtered_states, filt
 
 def main():
     # Configuration
-    dimension = '1d'  # change to '1d' for 1d simulation results
+    dimension = '2d'  # change to '1d' for 1d simulation results
     is_train = False
     is_save = True
     save_dir = "figures"
