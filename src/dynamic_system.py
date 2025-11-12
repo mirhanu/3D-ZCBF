@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Mar  8 12:59:23 2025
+
+dynamic_system.py
+
+Base class for dynamic systems.
 
 @author: Mirhan Urkmez
+Created: 2025-03-08
+
 """
 
 import numpy as np

@@ -1,15 +1,28 @@
 # -*- coding: utf-8 -*-
 """
-Created on %(date)s
+Leader-Follower Multi-Agent System (MAS) Simulation Module
 
-@author: % Mirhan Urkmez
+This module defines the `LeaderFollowerMAS` class, which models a
+leader-follower multi-agent system with first-order consensus dynamics.
+The system supports:
+
+- Leader and follower agents on an arbitrary communication graph (networkx Graph).
+- Desired relative distances between agents.
+- Control Barrier Functions (CBFs) for safety constraints.
+- Estimation of CBF time derivatives (hdots) and Jacobian bounds.
+
+Dynamics:
+------------
+Followers:  p_dot_i = -Σ_j∈N(i) (p_i - p_j - d_ij_des)
+Leaders:    p_dot_i = -Σ_j∈N(i) (p_i - p_j - d_ij_des) + u_i
+
 """
 
 import numpy as np
 import networkx as nx
 import random
-from dynamic_system import DynamicSystem
-from utils import estimate_jacobians
+from src.dynamic_system import DynamicSystem
+from src.utils import estimate_jacobians
 
 
 class LeaderFollowerMAS(DynamicSystem):

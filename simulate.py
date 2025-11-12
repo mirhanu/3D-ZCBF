@@ -14,10 +14,10 @@ Created: 2025-11-11
 
 import numpy as np
 import pickle
-from leader_follower_mas import LeaderFollowerMAS
-from utils import *
-from cbf_control import *
-from config import *
+from src.leader_follower_mas import LeaderFollowerMAS
+from src.utils import *
+from src.cbf_control import *
+from config.config import *
 
 
 def prepare_initial_state(dim='2d'):
@@ -61,10 +61,10 @@ def control_law_wrapper(state, t, mas, Jubounds, Jlbounds, filtered_states, filt
 
 def main():
     # Configuration
-    dimension = '2d'  # change to '1d' for 1d simulation results
-    is_train = True
+    dimension = '1d'  # change to '1d' for 1d simulation results
+    is_train = False
     is_save = True
-    save_dir = "figures2"
+    save_dir = "figures"
 
     # Available configurations
     configs = {

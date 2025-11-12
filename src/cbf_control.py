@@ -28,18 +28,10 @@ readability, documentation and defensive checks for publishing.
 
 """
 
-
-from __future__ import annotations
-
-
-import logging
-import random
 from typing import Dict, Iterable, List, Optional, Tuple
-
-
 import cvxpy as cp
 import numpy as np
-from utils import nominal_controller
+from src.utils import nominal_controller
 
 
 def cbf_control_law(state, t, mas, Ju_dict, Jl_dict, states_array, controls_array, cbfdots_array, desired_pos, k_p=0.5, alpha=100.0, beta_dict=None, slack_weight=1e9):

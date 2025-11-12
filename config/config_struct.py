@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on %(date)s
+config_struct.py
+
+Dataclasses for configuring multi-agent system (MAS) simulations.
 
 @author: % Mirhan Urkmez
+Created: 2025-11-11
+
 """
 
 from dataclasses import dataclass

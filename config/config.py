@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 """
-Created on %(date)s
+
+config.py
+
+Configuration instances for multi-agent system (MAS) simulations used in the paper.
+
 
 @author: % Mirhan Urkmez
+Created: 2025-11-11
+
 """
 
 import numpy as np
-from config_struct import *
+from config.config_struct import *
 
 # ----------------- 2D configuration example ----------------- #
 config_2d = Config(
     simulation=SimulationConfig(
         dt=0.01, dtSim=0.001, TSim=0.1, T=5.0, num_states=50,
-        jbounds_file='Jbounds6-2.pkl'),
+        jbounds_file='jacobian_bounds//Jbounds2D.pkl'),
     agents=AgentConfig(
         leaders=[0, 3],
         d_max=3.0,
@@ -38,7 +44,7 @@ config_2d = Config(
 config_1d = Config(
     simulation=SimulationConfig(
         dt=0.01, dtSim=0.01, TSim=1.0, T=1.0, num_states=50,
-        jbounds_file='Jboundsplay.pkl'),
+        jbounds_file='jacobian_bounds//Jbounds1D.pkl'),
     agents=AgentConfig(
         leaders=[0, 3],
         d_max=3.0,
@@ -51,7 +57,7 @@ config_1d = Config(
     ),
     control=ControlConfig(
         k_p=10.0,
-        alpha=10,
+        alpha=10.0,
         beta_dict={((0, 3), 0): 0.5, ((0, 3), 3): 0.5}
     )
 )

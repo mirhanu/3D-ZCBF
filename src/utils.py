@@ -1,8 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Created on %(date)s
+utils.py
 
-@author: % Mirhan Urkmez
+Utility functions for Multi-Agent System (MAS) simulations.
+
+Includes:
+- Graph creation
+- MAS simulation
+- CBF computation and filtering
+- Trajectory and control plotting
+- Data selection via KMeans
+- Jacobian bound estimation
+- Nominal controller computation
+- Data generation
+
+Author: Mirhan Urkmez
+Created: 2025-11-11
+
 """
 
 from matplotlib.lines import Line2D
@@ -11,14 +25,13 @@ import cvxpy as cp
 from itertools import combinations
 import networkx as nx
 import matplotlib.pyplot as plt
-import itertools
-from sympy import symbols, Matrix, diff
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from matplotlib.colors import to_rgb
 from matplotlib.collections import LineCollection
 import colorsys
-from config_struct import *
+from config.config_struct import *
+import pickle
 
 
 def create_communication_graph(edges):
@@ -562,7 +575,7 @@ def generate_data(mas, config):
     return simulate_mas(mas, init_states, random_control_law, TSim)
 
 
-def train_jacobian_bounds(mas, states_array, controls_array, cbfdots_array, n_points=300, eps_v=0, save_file: str = "Jbounds.pkl"):
+def train_jacobian_bounds(mas, states_array, controls_array, cbfdots_array, n_points=400, eps_v=0, save_file: str = "Jbounds.pkl"):
     """Train (estimate) Jacobian bounds."""
     selected_states, selected_controls, selected_hdots = select_points_kmeans(
         states_array.T, controls_array.T, cbfdots_array, n_points)

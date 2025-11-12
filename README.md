@@ -17,26 +17,39 @@ This work introduces distributed data-driven control barrier functions (3D-ZCBFs
 
 ## Repository Structure
 
-- `simulate.py`  
-  Main simulation script. Generates 1D and 2D MAS simulations in the paper.
-
-- `cbf_control_law.py`  
-  Implementation of the data-driven CBF-based control law for leader–follower MAS.
-
-- `utils.py`  
-  Utility functions for plotting, data generation, nominal control, Jacobian estimation, and CBF filtering.
-
-- `config.py`  
-  Configuration file specifying simulation parameters, agent parameters, communication graphs, and control parameters.
-
-- `config_struct.py`  
-  Dataclasses defining the configuration structures for simulation, agents, graph, and control.
-
-- `leader_follower_mas.py`  
-  Class implementing the MAS dynamics and CBF computations.
-
+distributed-dd-cbf/
+│
+├── simulate.py # Main script to run 1D/2D MAS simulations
+│
+├── src/ # Core code
+│ ├── init.py
+│ ├── leader_follower_mas.py # MAS dynamics and CBF computation
+│ ├── cbf_control_law.py # Data-driven CBF-based control law
+│ ├── utils.py # Utility functions: plotting, data generation, nominal control, CBF filtering
+│ └── dynamic_system.py # Optional: additional system dynamics or helpers
+│
+├── config/ # Configuration
+│ ├── init.py
+│ ├── config.py # Default simulation parameters
+│ └── config_struct.py # Dataclasses for configuration structures
+│
+├── jacobian_bounds/ # Precomputed Jacobian bound files
+│ ├── jacobian_bounds_1d.pkl
+│ └── jacobian_bounds_2d.pkl
+│
+├── figures/ # Simulation results (plots, figures)
+│
+├── requirements.txt # Python dependencies
+└── README.md
 ---
 
+## Installation
+
+Install dependencies using `pip`:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 
@@ -46,11 +59,20 @@ Run simulations with:
 python simulate.py
 ```
 
-- Modify `dimension = '2d'` or `'1d'` in `simulate.py` to switch between 2D and 1D simulations.
-- `is_train = True` to train Jacobian bounds or `False` to load precomputed bounds.
-- Simulation results (plots) will be saved to the folder specified by `save_dir`.
+## Simulation Options
 
----
+Modify the following variables directly in `simulate.py`:
+
+```python
+# Set simulation dimension: '2d' for 2D, '1d' for 1D
+dimension = '2d'
+
+# Control whether to train Jacobian bounds or load precomputed ones
+is_train = False  # True to train, False to load from jacobian_bounds/
+
+# Directory to save simulation results and figures
+save_dir = "figures"
+```
 
 ## License
 
