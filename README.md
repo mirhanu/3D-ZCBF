@@ -1,10 +1,5 @@
 # Distributed Data-Driven Control Barrier Functions (3D-ZCBFs)
 
-This repository contains the code implementation for the following papers:
-
-* **Journal Version:** "Full Journal Title Here" (Submitted to *Journal Name*, 2026).
-* **Conference Version:** ["Distributed Data-Driven Control Barrier Functions for Leader-Follower Multi-Agent Systems"](link-to-paper), *Conference Name*, 2025.
-
 The code implements **distributed data-driven control barrier functions (3D-ZCBFs)** for connectivity preservation in leader-follower multi-agent systems (MAS) using only local state information.
 
 
