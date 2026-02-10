@@ -107,6 +107,13 @@ def main():
         is_train, mas, states_array, controls_array, cbfdots_array, config.simulation.jbounds_file
     )
 
+    # Uncomment to double Jacobian bounds
+    # for k in Jubounds:
+    #     Jubounds[k] /= 1/2
+
+    # for k in Jlbounds:
+    #     Jlbounds[k] /= 1/2
+
     # Run simulation
     mas.dt = config.simulation.dt
     mas.state = init_state
@@ -121,6 +128,26 @@ def main():
     # Plot results
     plot_all_results(states, controls, mas, desired_pos,
                      config, is_save=is_save, save_dir=save_dir)
+
+    n_u = nominal_controller(states, mas, desired_pos, config.control.k_p)
+    print("cbf cost:", np.mean(
+        np.linalg.norm(controls-n_u[:, :-1], axis=0)))
+
+    h = mas.calculate_cbfs(states)
+    print("min cbf", min(arr.min() for arr in h.values()))
+
+    h = mas.calculate_cbfs(states)
+    print("min cbf after 0.1 sec", min(
+        arr[10:].min() for arr in h.values()))
+
+    H = np.stack([arr for arr in h.values() if arr.size > 10])
+
+    # Boolean mask: True if any CBF is negative at that time
+    violations = np.any(H < 0, axis=0)
+
+    num_violation_times = np.sum(violations)
+
+    print("negative CBF:", num_violation_times)
 
 
 if __name__ == "__main__":

@@ -1,17 +1,26 @@
-# Distributed Data-Driven Control Barrier Functions for Leader-Follower Multi-Agent Systems
+# Distributed Data-Driven Control Barrier Functions (3D-ZCBFs)
 
-This repository contains code accompanying the paper:
+This repository contains the code implementation for the following papers:
 
-**"Distributed Data-Driven Control Barrier Functions for Leader-Follower Multi-Agent Systems"**  
+* **Journal Version:** "Full Journal Title Here" (Submitted to *Journal Name*, 2026).
+* **Conference Version:** ["Distributed Data-Driven Control Barrier Functions for Leader-Follower Multi-Agent Systems"](link-to-paper), *Conference Name*, 2025.
+
+The code implements **distributed data-driven control barrier functions (3D-ZCBFs)** for connectivity preservation in leader-follower multi-agent systems (MAS) using only local state information.
 
 
 The code implements **distributed data-driven control barrier functions (3D-ZCBFs)** for connectivity preservation in leader-follower multi-agent systems (MAS) using only local state information.
 
 ---
 
-## Abstract
+## Methodology Overview
 
-This work introduces distributed data-driven control barrier functions (3D-ZCBFs) for connectivity preservation in unknown control-affine leader–follower MAS. The framework identifies CBF time derivative bounds from collected system data, eliminating the need to model full high-dimensional agent and neighbor dynamics. The learned bounds are then used to ensure controlled invariance of the safe sets. Specific CBFs are designed to preserve connectivity among neighbors, and the conditions are reformulated so that each leader computes its input using only local information. A projection-based controller enforces the 3D-ZCBF constraints while minimally deviating from a nominal input. Simulations demonstrate distributed connectivity preservation using only local information.
+The 3D-ZCBF framework ensures controlled invariance of safe sets by identifying CBF time derivative bounds directly from collected system data. This approach eliminates the requirement for full modeling of high-dimensional agent and neighbor dynamics. 
+
+Key features of this implementation include:
+* **Local Information Only:** Leaders compute control inputs using only local state data.
+* **Connectivity Preservation:** Specific CBFs are designed to maintain links between neighbors in the MAS.
+* **Projection-Based Control:** A controller enforces 3D-ZCBF constraints while ensuring minimal deviation from a nominal control input.
+* **Data-Driven Bounds:** Learned Jacobian bounds are used to guarantee safety without explicit system identification.
 
 ---
 
@@ -77,6 +86,9 @@ is_save = False
 save_dir = "figures"
 ```
 
-## 📜 Citing this Work
+## 📜 Related Work
 
-This repository is for academic and research purposes. Please cite the above paper if used.
+If you use this code or the associated methods, please cite the following:
+
+* "A Distributed Framework for Data-Driven Safe Coordination in Leader–Follower Networks" (Under Review, 2026).
+*  "Distributed Data-Driven Control Barrier Functions for Leader-Follower Multi-Agent Systems" (Under Review, 2025).

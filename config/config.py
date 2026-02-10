@@ -56,7 +56,7 @@ config_1d = Config(
         desired_dists={(0, 1): 1, (0, 2): 1, (2, 3): 1, (0, 3): 1}
     ),
     control=ControlConfig(
-        k_p=10.0,
+        k_p=15.0,
         alpha=10.0,
         beta_dict={((0, 3), 0): 0.5, ((0, 3), 3): 0.5}
     )
