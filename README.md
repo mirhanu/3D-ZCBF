@@ -83,4 +83,3 @@ save_dir = "figures"
 If you use this code or the associated methods, please cite the following:
 
 * "A Distributed Framework for Data-Driven Safe Coordination in Leader–Follower Networks" (Under Review, 2026).
-*  "Distributed Data-Driven Control Barrier Functions for Leader-Follower Multi-Agent Systems" (Under Review, 2025).
